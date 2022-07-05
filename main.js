@@ -1,22 +1,23 @@
+alert("codign 5")
 // Get reference to Canvas
-let canvas = document.getElementById('canvas');
+var canvas = document.getElementById('canvas');
 
 // Get reference to Canvas Context
-let context = canvas.getContext('2d');
+var context = canvas.getContext('2d');
 
 // Initialize loading variables
-let loaded = false;
-let load_counter = 0;
+var loaded = false;
+var load_counter = 0;
 
 // Initialize images for layers
-let background = new Image();
-let shadows = new Image();
-let clouds = new Image();
-let floaties_1 = new Image();
-let floaties_2 = new Image();
-let mask = new Image();
-let humans = new Image();
-let floaties_3 = new Image();
+var background = new Image();
+var shadows = new Image();
+var clouds = new Image();
+var floaties_1 = new Image();
+var floaties_2 = new Image();
+var mask = new Image();
+var humans = new Image();
+var floaties_3 = new Image();
 
 // Create a list of layer objects
 // Each object contains the following:
@@ -26,7 +27,7 @@ let floaties_3 = new Image();
 // position: a place to keep track of the layer's current position
 // blend: what blend mode you'd like the layer to use—default is null
 // opacity: how transparent you'd like the layer to appear (0 is completely transparent, 1 is completely opaque)
-let layer_list = [
+var layer_list = [
   {
     'image': background,
     'src': './images/layer_1_1.png',
@@ -143,19 +144,19 @@ function drawCanvas() {
 function getOffset(layer) {
   // Calculate the amount you want the layers to move based on touch or mouse input.
   // You can play with the touch_multiplier variable here. Depending on the size of your canvas you may want to turn it up or down.
-  let touch_multiplier = 0.3;
-  let touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
-  let touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
+  var touch_multiplier = 0.3;
+  var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
+  var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
   // Calculate the amount you want the layers to move based on the gyroscope
   // You can play with the motion_multiplier variable here. Depending on the size of your canvas you may want to turn it up or down.
-  let motion_multiplier = 2.5;
-  let motion_offset_x = motion.x * layer.z_index * motion_multiplier;
-  let motion_offset_y = motion.y * layer.z_index * motion_multiplier;
+  var motion_multiplier = 2.5;
+  var motion_offset_x = motion.x * layer.z_index * motion_multiplier;
+  var motion_offset_y = motion.y * layer.z_index * motion_multiplier;
 
   // Calculate the total offset for both X and Y
   // Total offset is a combination of touch and motion
-  let offset = {
+  var offset = {
     x: touch_offset_x + motion_offset_x,
     y: touch_offset_y + motion_offset_y
   };
@@ -172,14 +173,14 @@ function getOffset(layer) {
 // Initialize variables for touch and mouse-based parallax
 
 // This is a variable we're using to only move things when you're touching the screen, or holding the mouse button down.
-let moving = false;
+var moving = false;
 
 // Initialize touch and mouse position
-let pointer_initial = {
+var pointer_initial = {
   x: 0,
   y: 0
 };
-let pointer = {
+var pointer = {
   x: 0,
   y: 0
 };
@@ -218,8 +219,8 @@ function pointerMove(event) {
   event.preventDefault();
   // Only run this if touch or mouse click has started
   if (moving === true) {
-    let current_x = 0;
-    let current_y = 0;
+    var current_x = 0;
+    var current_y = 0;
     // Check if this is a touch event
     if (event.type === 'touchmove') {
       // Current position of touch
@@ -272,11 +273,11 @@ function endGesture() {
 //// MOTION CONTROLS ////
 
 // Initialize variables for motion-based parallax
-let motion_initial = {
+var motion_initial = {
   x: null,
   y: null
 };
-let motion = {
+var motion = {
   x: 0,
   y: 0
 };
