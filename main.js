@@ -1,4 +1,4 @@
-alert("codign 5")
+alert("c 5")
 // Get reference to Canvas
 var canvas = document.getElementById('canvas');
 
