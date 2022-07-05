@@ -31,7 +31,7 @@ var layer_list = [
   {
     'image': background,
     'src': './images/layer_1_1.png',
-    'z_index': -10.25,
+    'z_index': -2.25,
     'position': { x: 0, y: 0 },
     'blend': null,
     'opacity': 1
@@ -63,7 +63,7 @@ var layer_list = [
   {
     'image': shadows,
     'src': './images/layer_5_1.png',
-    'z_index': -1.25,
+    'z_index': -3.25,
     'position': { x: 0, y: 0 },
     'blend': 'multiply',
     'opacity': 0.75
