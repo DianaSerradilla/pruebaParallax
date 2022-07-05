@@ -1,4 +1,4 @@
-alert("c 5")
+alert("d 5")
 // Get reference to Canvas
 var canvas = document.getElementById('canvas');
 
@@ -31,7 +31,7 @@ var layer_list = [
   {
     'image': background,
     'src': './images/layer_1_1.png',
-    'z_index': -2.25,
+    'z_index': -10.25,
     'position': { x: 0, y: 0 },
     'blend': null,
     'opacity': 1
