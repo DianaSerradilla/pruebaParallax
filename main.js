@@ -1,4 +1,4 @@
-alert("d 5")
+alert("e 5")
 // Get reference to Canvas
 var canvas = document.getElementById('canvas');
 
@@ -63,7 +63,7 @@ var layer_list = [
   {
     'image': shadows,
     'src': './images/layer_5_1.png',
-    'z_index': -3.25,
+    'z_index': -1.25,
     'position': { x: 0, y: 0 },
     'blend': 'multiply',
     'opacity': 0.75
@@ -296,11 +296,11 @@ window.addEventListener('deviceorientation', function (event) {
     // The device is right-side up in portrait orientation
     motion.x = event.gamma - motion_initial.y;
     motion.y = event.beta - motion_initial.x;
-  } else if (window.orientation === 1) {
+  } else if (window.orientation === 90) {
     // The device is in landscape laying on its left side
     motion.x = event.beta - motion_initial.x;
     motion.y = -event.gamma + motion_initial.y;
-  } else if (window.orientation === -1) {
+  } else if (window.orientation === -90) {
     // The device is in landscape laying on its right side
     motion.x = -event.beta + motion_initial.x;
     motion.y = event.gamma - motion_initial.y;
