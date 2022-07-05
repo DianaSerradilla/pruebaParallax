@@ -1,4 +1,4 @@
-alert("a 5")
+alert("b 5")
 // Get reference to Canvas
 var canvas = document.getElementById('canvas');
 
