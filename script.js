@@ -22,13 +22,7 @@ const layerList = [
   { ...baseConfig, src: './images/houses.png', zIndex: -2, },
   { ...baseConfig, src: './images/bubbles.png', zIndex: -0.8, blend: 'multiply', opacity: 0.3, },
   { ...baseConfig, src: './images/shadows.png', zIndex: -1.5, blend: 'multiply', opacity: 0.6, },
-  { ...baseConfig, src: './images/clouds.png', zIndex: -0.5, },
-  { ...baseConfig, src: './images/mask.png', zIndex: 0, },
-  { ...baseConfig, src: './images/objects.png', zIndex: 1, },
-  { ...baseConfig, src: './images/dots2.png', zIndex: 1.5, opacity: 0.8, },
-  { ...baseConfig, src: './images/dots3.png', zIndex: 2, },
-  { ...baseConfig, src: './images/guy.png', zIndex: 3, },
-  { ...baseConfig, src: './images/dots1.png', zIndex: 3.5, opacity: 0.9, },]
+]
 layerList.forEach((layer) => {
   layer.image = new Image()
   layer.image.onload = () => {
