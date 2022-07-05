@@ -1,12 +1,9 @@
-alert('hola')
+alert('coding 5')
 // Get reference to Canvas
 var canvas = document.getElementById('canvas');
 
 // Get reference to Canvas Context
 var context = canvas.getContext('2d');
-
-// Get reference to loading screen
-var loading_screen = document.getElementById('loading');
 
 // Initialize loading variables
 var loaded = false;
@@ -99,43 +96,24 @@ var layer_list = [
 
 
 // Go through the list of layer objects and load images from source
-// When all images are loaded, the loading screen will be hidden, and the render loop will start running
 layer_list.forEach(function (layer, index) {
-  // This is a function to run when the image is loaded
   layer.image.onload = function () {
     // Add 1 to the load counter
     load_counter += 1;
     // Checks if all the images are loaded
     if (load_counter >= layer_list.length) {
-      // remove loading mask here
-      hideLoading();
       // Start the render Loop!
       requestAnimationFrame(drawCanvas);
     }
-  };
-  // This actually tells the image to load
+  }
   layer.image.src = layer.src;
 });
 
-// Function to hide the loading mask
-function hideLoading() {
-  loading_screen.classList.add('hidden');
-}
 
 // Draw layers in Canvas
 function drawCanvas() {
   // Erase everything currently on the canvas
   context.clearRect(0, 0, canvas.width, canvas.height);
-
-  // This is needed for the animation to snap back to center when you release mouse or touch
-  TWEEN.update();
-
-  // Calculate how much the canvas should be rotated
-  var rotate_x = (pointer.y * -0.15) + (motion.y * 1.2);
-  var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
-
-  // Actually rotate the canvas
-  canvas.style.transform = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 
   // Loop through each layer in the list and draw it to the canvas
   layer_list.forEach(function (layer, index) {
@@ -149,8 +127,10 @@ function drawCanvas() {
     } else {
       context.globalCompositeOperation = 'normal';
     }
+
     // Set the opacity of the layer
     context.globalAlpha = layer.opacity;
+
     // Draw the layer into the canvas context
     context.drawImage(layer.image, layer.position.x, layer.position.y);
   });
@@ -285,10 +265,8 @@ function endGesture() {
   // You aren't touching or clicking anymore, so set this back to false
   moving = false;
 
-  // This removes any in progress tweens
-  TWEEN.removeAll();
-  // This starts the animation to reset the position of all layers when you stop moving them
-  var pointer_tween = new TWEEN.Tween(pointer).to({ x: 0, y: 0 }, 300).easing(TWEEN.Easing.Back.Out).start();
+  pointer.x = 0;
+  pointer.y = 0;
 }
 
 
@@ -318,11 +296,11 @@ window.addEventListener('deviceorientation', function (event) {
     // The device is right-side up in portrait orientation
     motion.x = event.gamma - motion_initial.y;
     motion.y = event.beta - motion_initial.x;
-  } else if (window.orientation === 10) {
+  } else if (window.orientation === 90) {
     // The device is in landscape laying on its left side
     motion.x = event.beta - motion_initial.x;
     motion.y = -event.gamma + motion_initial.y;
-  } else if (window.orientation === -10) {
+  } else if (window.orientation === -90) {
     // The device is in landscape laying on its right side
     motion.x = -event.beta + motion_initial.x;
     motion.y = event.gamma - motion_initial.y;
@@ -330,28 +308,6 @@ window.addEventListener('deviceorientation', function (event) {
     // The device is upside-down in portrait orientation
     motion.x = -event.gamma + motion_initial.y;
     motion.y = -event.beta + motion_initial.x;
-  }
-
-  // This is optional, but prevents things from moving too far (because these are 2d images it can look broken)
-  var max_offset = 23;
-
-  // Check if magnitude of motion offset along X axis is greater than your max setting
-  if (Math.abs(motion.x) > max_offset) {
-    // Check whether offset is positive or negative, and make sure to keep it that way
-    if (motion.x < 0) {
-      motion.x = -max_offset;
-    } else {
-      motion.x = max_offset;
-    }
-  }
-  // Check if magnitude of motion offset along Y axis is greater than your max setting
-  if (Math.abs(motion.y) > max_offset) {
-    // Check whether offset is positive or negative, and make sure to keep it that way
-    if (motion.y < 0) {
-      motion.y = -max_offset;
-    } else {
-      motion.y = max_offset;
-    }
   }
 });
 
