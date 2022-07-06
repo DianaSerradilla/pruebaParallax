@@ -31,9 +31,9 @@ const baseConfig = { position: { x: 0, y: 0 }, blend: null, opacity: 1, }
 //   { ...baseConfig, src: './images/dots1.png', zIndex: 3.5, opacity: 0.9, },]
 const layerList = [
   // { ...baseConfig, src: './images/background_01.png', zIndex: -3, },
-  { ...baseConfig, src: './images/splash.png', zIndex: -3, },
-  { ...baseConfig, src: './images/grape.png', zIndex: -1.8, },
-  { ...baseConfig, src: './images/wine.png', zIndex: -1.5, },
+  { ...baseConfig, src: './images/splash.png', zIndex: -4, },
+  { ...baseConfig, src: './images/grape.png', zIndex: -3.8, },
+  { ...baseConfig, src: './images/wine.png', zIndex: -2.5, },
   { ...baseConfig, src: './images/grape_01.png', zIndex: -1.3, },
   { ...baseConfig, src: './images/vineyard.png', zIndex: -0.5, },
   { ...baseConfig, src: './images/sheet_01.png', zIndex: 0, },
