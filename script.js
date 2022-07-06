@@ -32,16 +32,16 @@ const baseConfig = { position: { x: 0, y: 0 }, blend: null, opacity: 1, }
 const layerList = [
   { ...baseConfig, src: './images/background_01.png', zIndex: -3, },
   { ...baseConfig, src: './images/splash.png', zIndex: -2, },
-  { ...baseConfig, src: './images/grape.png', zIndex: -0.8 },
-  { ...baseConfig, src: './images/wine.png', zIndex: -0.8 },
-  { ...baseConfig, src: './images/grape_01.png', zIndex: -1.5 },
+  { ...baseConfig, src: './images/grape.png', zIndex: -0.8, },
+  { ...baseConfig, src: './images/wine.png', zIndex: -0.8, },
+  { ...baseConfig, src: './images/grape_01.png', zIndex: -1.5, },
   { ...baseConfig, src: './images/vineyard.png', zIndex: -0.5, },
   { ...baseConfig, src: './images/sheet_01.png', zIndex: 0, },
   { ...baseConfig, src: './images/sheet_02.png', zIndex: 1, },
-  { ...baseConfig, src: './images/sheet_03.png', zIndex: 1.5, opacity: 0.8, },
+  { ...baseConfig, src: './images/sheet_03.png', zIndex: 1.5, },
   { ...baseConfig, src: './images/sheet_04.png', zIndex: 2, },
   { ...baseConfig, src: './images/sheet_05.png', zIndex: 3, },
-  { ...baseConfig, src: './images/sheet_06.png', zIndex: 3.5, opacity: 0.9, },]
+  { ...baseConfig, src: './images/sheet_06.png', zIndex: 3.5, },]
 layerList.forEach((layer) => {
   layer.image = new Image()
   layer.image.onload = () => {
