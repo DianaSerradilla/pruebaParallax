@@ -30,7 +30,7 @@ const baseConfig = { position: { x: 0, y: 0 }, blend: null, opacity: 1, }
 //   { ...baseConfig, src: './images/guy.png', zIndex: 3, },
 //   { ...baseConfig, src: './images/dots1.png', zIndex: 3.5, opacity: 0.9, },]
 const layerList = [
-  { ...baseConfig, src: './images/background_01.png', zIndex: -3, },
+  // { ...baseConfig, src: './images/background_01.png', zIndex: -3, },
   { ...baseConfig, src: './images/splash.png', zIndex: -2, },
   { ...baseConfig, src: './images/grape.png', zIndex: -0.8, },
   { ...baseConfig, src: './images/wine.png', zIndex: -0.8, },
